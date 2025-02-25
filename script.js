@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
   const fadeElements = document.querySelectorAll("header, footer");
-  const idleTime = 5000; // Time (in ms) before fade out (e.g., 5 seconds)
+  const idleTime = 4000; // Time (in ms) before fade out (e.g., 5 seconds)
   let timeout;
 
   // Set the passphrase here (change this to your desired passphrase)
@@ -49,9 +49,4 @@ document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener("mousemove", showElements);
   document.addEventListener("keydown", showElements);
   document.addEventListener("touchstart", showElements);
-
-  // Listen for user interactions: mouse movement, key press, or touch events
-  document.addEventListener("mousemove", showFooter);
-  document.addEventListener("keydown", showFooter);
-  document.addEventListener("touchstart", showFooter);
 });
