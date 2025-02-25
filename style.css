@@ -1,3 +1,10 @@
+/* Import Shafarik font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Shafarik&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
 /* Reset some basic elements */
 * {
   margin: 0;
@@ -9,19 +16,43 @@ body {
   background-color: #000;
   color: #fff;
   font-family: Arial, sans-serif;
+  font-family: 'Raleway', sans-serif;  /* Use Raleway for non-article text */
+  font-weight: 100;                    /* Thin weight for a modern look */
   line-height: 1.6;
   padding: 20px;
 }
 
-/* Header Styles */
-header {
-  text-align: center;
-  margin-bottom: 20px;
+/* Fade in animation for main content */
+#protectedContent {
+  animation: fadeIn 1s ease-in-out;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Header Styles */
+header {
+  text-align: left;
+  margin-bottom: 20px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /* Hidden state: header is faded out */
+  header.hidden {
+    opacity: 0;
+  }
+
 header h1 {
-  font-size: 2.5rem;
+  font-size: 1rem;
   margin-bottom: 10px;
+  font-family: 'Shafarik', sans-serif;
 }
 
 nav ul {
@@ -29,6 +60,7 @@ nav ul {
   display: flex;
   justify-content: center;
   gap: 15px;
+  font-family: 'Shafarik', sans-serif;
 }
 
 nav a {
@@ -45,14 +77,16 @@ nav a:hover {
 /* Main Content Styles */
 main {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0;
 }
 
+/* Article Styles with Shafarik font for body text */
 article {
   background: #111;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 5px;
+  font-family: 'Shafarik', sans-serif;
 }
 
 article h2 {
@@ -74,9 +108,45 @@ article a:hover {
   color: #63b3ed;
 }
 
+article a.read-more {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; /* ensures a thin, modern look */
+  font-size: 1rem;
+}
+
+time {
+  font-family: 'Roboto', sans-serif;
+  font-size: .8rem;
+}
+
 /* Footer Styles */
 footer {
   text-align: center;
   margin-top: 40px;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
+}
+
+/* Responsive Styles for Mobile Devices */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  main {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  article {
+    padding: 15px;
+  }
 }
