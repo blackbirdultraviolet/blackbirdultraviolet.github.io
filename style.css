@@ -82,11 +82,13 @@ main {
 
 /* Article Styles with Shafarik font for body text */
 article {
-  background: #111;
+  background: #000000;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 5px;
   font-family: 'Shafarik', sans-serif;
+  margin-bottom: 40px; /* extra margin to separate posts */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 article h2 {
@@ -114,6 +116,10 @@ article a.read-more {
   font-size: 1rem;
 }
 
+article:last-child {
+  border-bottom: none;
+}
+
 time {
   font-family: 'Roboto', sans-serif;
   font-size: .8rem;
@@ -125,7 +131,7 @@ footer {
   margin-top: 40px;
   font-size: 0.5rem;
   opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
 }
 
 footer.hidden {

@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  const header = document.querySelector("header");
-  const footer = document.querySelector("footer");
-  const idleTime = 5000; // Time in milliseconds before header fades out (e.g., 5000ms = 5 seconds)
+  const fadeElements = document.querySelectorAll("header, footer");
+  const idleTime = 5000; // Time (in ms) before fade out (e.g., 5 seconds)
   let timeout;
 
   // Set the passphrase here (change this to your desired passphrase)
-  const correctPassphrase = "a river runs";
+  const correctPassphrase = "ultraviolet";
   
   // Check if the correct passphrase is stored in local storage
   const storedPassphrase = localStorage.getItem("passphrase");
@@ -30,23 +29,29 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-   // Function to hide the header by adding the 'hidden' class
-   function hideHeader() {
-    header.classList.add("hidden");
+  // Function to hide both elements by adding the 'hidden' class
+  function hideElements() {
+    fadeElements.forEach(el => el.classList.add("hidden"));
   }
 
-  // Function to show the header by removing the 'hidden' class and reset the timer
-  function showHeader() {
-    header.classList.remove("hidden");
+
+  // Function to show both elements and reset the timer
+  function showElements() {
+    fadeElements.forEach(el => el.classList.remove("hidden"));
     clearTimeout(timeout);
-    timeout = setTimeout(hideHeader, idleTime);
+    timeout = setTimeout(hideElements, idleTime);
   }
 
-  // Set the initial timer to hide the header after idleTime
-  timeout = setTimeout(hideHeader, idleTime);
+  // Set initial timer to fade out elements after idleTime
+  timeout = setTimeout(hideElements, idleTime);
 
   // Listen for user interactions: mouse movement, key press, or touch events
-  document.addEventListener("mousemove", showHeader);
-  document.addEventListener("keydown", showHeader);
-  document.addEventListener("touchstart", showHeader);
+  document.addEventListener("mousemove", showElements);
+  document.addEventListener("keydown", showElements);
+  document.addEventListener("touchstart", showElements);
+
+  // Listen for user interactions: mouse movement, key press, or touch events
+  document.addEventListener("mousemove", showFooter);
+  document.addEventListener("keydown", showFooter);
+  document.addEventListener("touchstart", showFooter);
 });
