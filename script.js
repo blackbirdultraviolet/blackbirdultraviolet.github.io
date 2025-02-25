@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
   const header = document.querySelector("header");
+  const footer = document.querySelector("footer");
   const idleTime = 5000; // Time in milliseconds before header fades out (e.g., 5000ms = 5 seconds)
   let timeout;
 
