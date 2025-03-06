@@ -1,8 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
-
   const fadeElements = document.querySelectorAll("header, footer");
   const idleTime = 4000; // Time (in ms) before fade out (e.g., 5 seconds)
+  const fadeSection = document.querySelectorAll('.fade-in-section');
+  // Options for the observer (here, 10% of the element is visible)
+  const observerOptions = {
+    threshold: 0.1
+  };
   let timeout;
+
 
   // Set the passphrase here (change this to your desired passphrase)
   const correctPassphrase = "ultraviolet";
@@ -49,4 +54,34 @@ document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener("mousemove", showElements);
   document.addEventListener("keydown", showElements);
   document.addEventListener("touchstart", showElements);
+
+
+
+
+  // Fade-On-Scroll Functionality
+
+  // Callback function executed when an observed element enters/exits the viewport
+  const observerCallback = function(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Add the is-visible class to trigger the CSS transition
+        entry.target.classList.add('is-visible');
+        // Optionally, stop observing the element after it has become visible
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+  // Create the IntersectionObserver instance
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  // Observe each fade element
+  fadeSection.forEach(el => {
+    observer.observe(el);
+  });
+
+
+
+
 });
+
